@@ -1,68 +1,82 @@
 <?php
-//Regles
-   //1) Encapsulation  =>gerer la portéé des attributs et Methodes d'une Classe
-            //Portéé
-               //private => acces limité a la Classe
-               //public => acces illimité
-               //protected => acces illimité
 
-//github //creer un compte
-//git //installer
 
   class Rectangle{
-      //Attributs  doivent etre à private
-          //Instance=> spécifique à un objet de la classe
-            private $longueur;
-            private $largeur;
-
-          //Classe=> partagé  à l'ensemble des objets de la classe
+     
+           //Attributs Instances
+            private $largeur; 
+            private $longueur; 
+          //Attributs classe ou Attributs static
             private static $unite;
+          
 
-      //Methodes   doivent etre à public
-
-          //Instance
-               //concrete=> dont on connait la définition
-                  //constructeurs => Construire un Objet
+            //Constructeur => methode instance concrete
               public  function __construct(){
 
               }
-                  //getter/setters
-                      //getters => accesseurs
+               
+              //Getters  methodes instances concretes
               public function getLongueur(){
                   return $this->longueur;
               }
               public function getLargeur(){
                 return $this->largeur;
-            }
-              //setters => mutateurs=> modifier la valeur d'un attribut
+             }
+             //setters  methodes instances concretes
               public function setLargeur($largeur){
                  $this->largeur=$largeur;
-            }
-            public function setLongueur($longueur){
+              }
+              public function setLongueur($longueur){
                  $this->longueur=$longueur;
-            }
+              }
+              //Getters Setters  methodes static concretes
+              public static function getUnite(){
+                   return self::$unite;
+             }
+              public static function setUnite($unite){
+                   self::$unite=$unite;
+             }
 
-                  //metiers=>UC
+
+              //metiers=>UC
                 public function demiPerimetre($longueur,$largeur){
-
+                     return $this->longueur + $this->largeur;
                 }
                 public function perimetre($longueur,$largeur){
+                  return $this->demiPerimetre($longueur,$largeur)*2;
 
                 }
                 public function surface($longueur,$largeur){
-
+                  return $this->longueur * $this->largeur;
                 }
                 public function diagonale($longueur,$largeur){
-
+                  return sqrt(pow($this->longueur,2)+pow($this->largeur,2));
                 }
-               //astraite => dont on ne connait pas encore sa défition
-                //metiers=>UC
-
-          //Classe
-               //concrete
-                  //getter/setters
-                   //metiers=>UC
-               //astraite
-                //metiers=>UC
+              
   }
+/*
+  //Access Classe  ::
+  //Objet          ->
+Rectangle::setUnite("m");
+
+  //Objets
+  $rect1=new Rectangle();
+  //$rect1.longueur => erreur encapsulation
+  //Setters
+  $rect1->setLongueur(1200000);
+  $rect1->setLargeur(120000);
+  //Getters
+ echo "Longueur ".  $rect1->getLongueur()."" .$rect1->getUnite()."  <br>";
+ echo "Largeur ". $rect1->getLargeur()."" .$rect1->getUnite()."<br>";
+
+
+  $rect2=new Rectangle();
+ //Setters
+ $rect2->setLongueur(1200002);
+ $rect2->setLargeur(120002);
+ //Getters
+echo "Longueur".  $rect2->getLongueur()."" .$rect2->getUnite(). "<br>";
+echo "Largeur". $rect2->getLargeur()."" .$rect2->getUnite()."<br>";
+*/
+
 ?>
