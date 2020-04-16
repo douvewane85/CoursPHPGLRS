@@ -4,7 +4,7 @@ class Validator {
     private $errors=[];
 
     public function getErrors(){
-         $this->errors;
+           return $this->errors;
     }
 
     public function is_valid(){
@@ -23,7 +23,7 @@ class Validator {
   Largeur positif
 */
 public function is_positif($nombre,$key,$errorMessage="Veuiller saisir un nombre positif"){
-                 is_number($nombre,$key);
+                   $this->is_number($nombre,$key);
                    if($this->is_valid()){
                       if($nombre<=0){
                         $this->errors[$key]= $errorMessage;
@@ -38,29 +38,18 @@ public function is_positif($nombre,$key,$errorMessage="Veuiller saisir un nombre
 //compare()
 //Nbre1 =>plus grand
 //Nbre2 =>plus petit
-public function compare($nbre1,$nbre2,$errorMessage="Longueur doit superieur à la Largeur"){
-   $result1=is_positif($nbre1);
-
-   $result2=is_positif($nbre2);
-   $error=[];
-   if($result1!==true){
-      $error['longueur']= $result1;
-   }
-   if($result2!==true){
-      $error['largeur']= $result2;
-   }
-   if(count($error)==0){
-           if($nbre1>$nbre2){
-                 return true;
-           }else{
-              $error['all']=$errorMessage;
+public function compare($nbre1,$nbre2,$key1,$key2,$errorMessage="Longueur doit superieur à la Largeur"){
+    $this->is_positif($nbre1,$key1);
+    $this->is_positif($nbre2,$key2);
+   if($this->is_valid()){
+           if($nbre1<=$nbre2){
+              $this->errors['all']=$errorMessage;
            }
    }
-   return $error;
 
 }
 
-    public function  is_empty($nbre,$key,$sms=null){
+public function  is_empty($nbre,$key,$sms=null){
     if(empty($nbre)){
         if($sms==null){
             $sms="Le Nombre  est Obligatoire";
@@ -69,6 +58,22 @@ public function compare($nbre1,$nbre2,$errorMessage="Longueur doit superieur à 
 
         }
     }
+//Expressions Régulières
+    public function  is_email($valeur,$key,$sms=null){
+    
+    }
+
+    //9chiffres , commence par 77,78,75,76,70
+    public function  is_telephone($valeur,$key,$sms=null){
+    
+    }
+
+
+
+
+
 }
+
+
 
 ?>

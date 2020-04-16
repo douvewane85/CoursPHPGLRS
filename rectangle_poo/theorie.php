@@ -8,7 +8,17 @@
                //private => acces limité a la Classe
                //public => acces illimité
                //protected => 
-   //Surchage
+   //Surchage de methode=>une methode qui différente maniere d'utilisation
+    /*  
+      function is_empty($nbre,$sms=null){
+
+     }
+      is_empty(2);
+      is_empty(2,"Ce doit etre positif");
+
+    */
+     
+     
    //Heritage
       //Classe Abstraites
       //Interface  
@@ -37,7 +47,7 @@
                       //setters => mutateurs=> modifier la valeur d'un attribut
                       //metiers=>UC
                 
-               //b)Methodes abstraites => dont on ne connait pas encore sa défitionMethodes 
+               //b)Methodes abstraites => dont on ne connait pas encore sa défition 
                 //Exemple 
                        //metiers=>UC
 
