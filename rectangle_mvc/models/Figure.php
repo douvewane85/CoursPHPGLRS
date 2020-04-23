@@ -1,11 +1,10 @@
 <?php
-//Figure est la Classe Mere de Carre et de Rectangle
-//Figure est un généralisation de Carre et  de Rectangle
+
  abstract class Figure{
     //Attributs Instances
-      protected $longueur; 
+      private $longueur; 
     //Attributs classe ou Attributs static
-     protected static $unite;
+      private static $unite;
 
 
        //Getters  methodes instances concretes
@@ -28,10 +27,7 @@
 
    //metiers=>UC
     public abstract function demiPerimetre();
-    public function perimetre(){
-      return $this->demiPerimetre()*2;
-
-    }
+    public abstract function perimetre();
     public abstract function surface();
     public abstract function diagonale();
 }

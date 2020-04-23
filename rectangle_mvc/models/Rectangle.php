@@ -1,14 +1,14 @@
 <?php
 
-//Un Rectangle est une Figure
-//Un rectangle herite d'une Figure
-//Rectangle est une classe Fille de Figure
 
-  class Rectangle extends Figure{
+  class Rectangle{
      
            //Attributs Instances
             private $largeur; 
+            private $longueur; 
           //Attributs classe ou Attributs static
+            private static $unite;
+          
 
             //Constructeur => methode instance concrete
               public  function __construct($longueur=null,$largeur=null){
@@ -21,7 +21,9 @@
               }
                
               //Getters  methodes instances concretes
-           
+              public function getLongueur(){
+                  return $this->longueur;
+              }
               public function getLargeur(){
                 return $this->largeur;
              }
@@ -29,16 +31,26 @@
               public function setLargeur($largeur){
                  $this->largeur=$largeur;
               }
-             
+              public function setLongueur($longueur){
+                 $this->longueur=$longueur;
+              }
               //Getters Setters  methodes static concretes
-            
+              public static function getUnite(){
+                   return self::$unite;
+             }
+              public static function setUnite($unite){
+                   self::$unite=$unite;
+             }
+
 
               //metiers=>UC
-              //Redefinition
                 public function demiPerimetre(){
                      return $this->longueur + $this->largeur;
                 }
-              
+                public function perimetre(){
+                  return $this->demiPerimetre($this->longueur,$this->largeur)*2;
+
+                }
                 public function surface(){
                   return $this->longueur * $this->largeur;
                 }

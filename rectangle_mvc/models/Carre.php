@@ -1,49 +1,52 @@
 <?php
-
-//Un Rectangle est une Figure
-//Un rectangle herite d'une Figure
-//Rectangle est une classe Fille de Figure
-
-  class Rectangle extends Figure{
+  class Carre{
      
            //Attributs Instances
-            private $largeur; 
+            private $longueur; 
           //Attributs classe ou Attributs static
+            private static $unite;
+          
 
             //Constructeur => methode instance concrete
-              public  function __construct($longueur=null,$largeur=null){
+              public  function __construct($longueur=null){
                         if($longueur!=null){
                           $this->longueur=$longueur;
                         }
-                        if($largeur!=null){
-                          $this->largeur=$largeur;
-                        }
+                       
               }
                
               //Getters  methodes instances concretes
-           
-              public function getLargeur(){
-                return $this->largeur;
-             }
-             //setters  methodes instances concretes
-              public function setLargeur($largeur){
-                 $this->largeur=$largeur;
+              public function getLongueur(){
+                  return $this->longueur;
               }
-             
-              //Getters Setters  methodes static concretes
             
+             //setters  methodes instances concretes
+            
+              public function setLongueur($longueur){
+                 $this->longueur=$longueur;
+              }
+              //Getters Setters  methodes static concretes
+              public static function getUnite(){
+                   return self::$unite;
+             }
+              public static function setUnite($unite){
+                   self::$unite=$unite;
+             }
+
 
               //metiers=>UC
-              //Redefinition
                 public function demiPerimetre(){
-                     return $this->longueur + $this->largeur;
+                     return $this->longueur *2;
                 }
-              
+                public function perimetre(){
+                  return $this->demiPerimetre()*2;
+
+                }
                 public function surface(){
-                  return $this->longueur * $this->largeur;
+                  return $this->longueur * $this->longueur;
                 }
                 public function diagonale(){
-                  return sqrt(pow($this->longueur,2)+pow($this->largeur,2));
+                  return sqrt(pow($this->longueur,2)+pow($this->longueur,2));
                 }
               
   }

@@ -1,11 +1,10 @@
 <?php
-  class Carre{
-     
-           //Attributs Instances
-            private $longueur; 
-          //Attributs classe ou Attributs static
-            private static $unite;
-          
+//Un Carre est une Figure
+//Un Carre herite d'une Figure
+//Carre est une classe Fille de Figure
+//Carre est une specialisation de Figure
+  class Carre extends Figure{
+
 
             //Constructeur => methode instance concrete
               public  function __construct($longueur=null){
@@ -15,33 +14,12 @@
                        
               }
                
-              //Getters  methodes instances concretes
-              public function getLongueur(){
-                  return $this->longueur;
-              }
-            
-             //setters  methodes instances concretes
-            
-              public function setLongueur($longueur){
-                 $this->longueur=$longueur;
-              }
-              //Getters Setters  methodes static concretes
-              public static function getUnite(){
-                   return self::$unite;
-             }
-              public static function setUnite($unite){
-                   self::$unite=$unite;
-             }
-
-
               //metiers=>UC
+              //Redefinition
                 public function demiPerimetre(){
                      return $this->longueur *2;
                 }
-                public function perimetre(){
-                  return $this->demiPerimetre()*2;
-
-                }
+               
                 public function surface(){
                   return $this->longueur * $this->longueur;
                 }
