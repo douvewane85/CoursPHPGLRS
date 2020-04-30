@@ -1,8 +1,12 @@
 <?php
+//Helpers
 require_once("Validator.php");
+//Model=> Diagramme de Classe
 require_once("Figure.php");
 require_once("Rectangle.php");
 require_once("Carre.php");
+//Acces BD
+require_once("CarreManager.php");
 
 $errors=[];
 $resultat=[];

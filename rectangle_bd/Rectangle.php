@@ -19,7 +19,9 @@
                           $this->largeur=$largeur;
                         }
               }
-               
+              public function hydrate($row){
+                
+              }
               //Getters  methodes instances concretes
            
               public function getLargeur(){

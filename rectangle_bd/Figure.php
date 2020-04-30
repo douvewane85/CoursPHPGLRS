@@ -1,9 +1,11 @@
 <?php
 //Figure est la Classe Mere de Carre et de Rectangle
 //Figure est un généralisation de Carre et  de Rectangle
- abstract class Figure{
+   require_once("./IManager.php");
+   abstract class Figure implements IManager{
     //Attributs Instances
       protected $longueur; 
+      protected $id;
     //Attributs classe ou Attributs static
      protected static $unite;
 
@@ -34,6 +36,7 @@
     }
     public abstract function surface();
     public abstract function diagonale();
+    
 }
     // $fig=new Figure();//Impossible car Figure est une classe Abstraite
 ?>
