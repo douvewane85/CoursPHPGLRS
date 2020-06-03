@@ -13,8 +13,16 @@ class User implements IManager{
         }
     }
 
+    public function getProfil(){
+        return $this->profil;
+    }
+
     public function hydrate($row){
        $this->id=$row['id'];
        $this->fullName=$row['fullName'];
+       $this->login=$row['login'];
+       $this->pwd=$row['pwd'];
+       $this->profil=$row['profil'];
+       $this->avatar=$row['avatar'];
     }
 }

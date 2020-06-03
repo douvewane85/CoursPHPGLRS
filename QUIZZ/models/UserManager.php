@@ -27,6 +27,7 @@ class UserManager extends Manager{
 
     public function getUserByLoginAndPwd($login,$pwd){
        $sql="select * from user where login='$login' and pwd='$pwd'";
-       return $this-> ExecuteSelect($sql);
+      $users=$this-> ExecuteSelect($sql);
+       return $users[0];
     } 
 }

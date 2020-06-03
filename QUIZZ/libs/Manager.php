@@ -10,7 +10,7 @@
         try{
            //Scenerio nominal
            if($this->pdo==null){
-            $this->pdo = new PDO('mysql:host=localhost;dbname=glrs_figure', 'root','');
+            $this->pdo = new PDO('mysql:host=localhost;dbname=glrs_quizz', 'root','');
             //Activer les erreurs
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION );
             //Activer le Mode Recuperation sous la forme d'un tableau Associatif

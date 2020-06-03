@@ -1,29 +1,48 @@
-<div class="row mt-5">
 
-<div class="card">
-    <div class="card-header">
-        Login Form
-    </div>
-    <div class="card-body">
-        <form>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div id="connexion-form" class="w-25">
+                     
+            <div class="connexion-form-header">
+                <h3 class="bgPrimary h5 p-3 m-0">Login form</h3>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Connexion</button>
-    </form>
-    </div>
-    
-</div>
+
+            <div class="connexion-form-body bgWhite p-3">
+                    <?php
+                           if(isset($err_login)){
+                        ?>
+                             <small id="helpId" class="text-danger"><?=$err_login?></small>
+                         <?php
+                          }
+                    ?>
+                <form class="py-2" method="post" action="security/seConnecter" >
+                    <div class="form-group ">
+                        <input type="text" placeholder="Login" name="login" class="form-control" id="email">
+                        <?php
+                           if(isset($erreurs['login'])){
+                        ?>
+                         <small id="helpId" class="text-danger"><?=$erreurs['login']?></small>
+                         <?php
+                          }
+                        ?>
+                    </div>
+
+                    <div class="form-group py-2">
+                        <input type="password" placeholder="Password" name="password" class="form-control">
+                        <?php
+                           if(isset($erreurs['password'])){
+                        ?>
+                         <small id="helpId" class="text-danger"><?=$erreurs['password']?></small>
+                         <?php
+                          }
+                        ?>
+                    </div>
 
 
-</div>
+                    <button type="submit" class="btn btn-primary" name="btn_connexion">Submit</button>
+                    <a href="security/loadViewInscription" class="text-secondary pl-5">S'inscrire pour jouer</a>
+                </form>
+            </div>
+
+        </div>
+
+       
+       

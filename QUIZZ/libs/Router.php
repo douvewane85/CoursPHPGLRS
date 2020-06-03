@@ -29,6 +29,9 @@ class Router{
                      $this->ctrl=new $ctrlClass() ;
                     if(method_exists($this->ctrl,$url[1])){
                           $this->ctrl->{$url[1]}();
+                          unset($url[0]);
+                          unset($url[1]);
+                          unset($url[2]);
                     }else{
                         require_once "controllers/Errors.php";
                         $this->ctrl=new Errors();
